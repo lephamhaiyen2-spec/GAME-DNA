@@ -33,7 +33,7 @@
 <br><button class="btn" onclick="location.reload()">🔄 CHƠI LẠI</button></div></section>
 <section id="timeout" class="screen center"><div class="card"><div style="font-size:70px">⏰</div><h1>HẾT THỜI GIAN!</h1><p>Lượt chơi đã được ghi nhận.</p><button class="btn" onclick="location.reload()">↩️ QUAY LẠI</button></div></section>
 
-<script type="module">
+<script src="config.js"></script><script type="module">
 let THREE=null;
 let threePromise=null;
 async function loadThree(){
@@ -124,7 +124,7 @@ function attachControls(container,renderer,camera,group){
 function showModel(id){document.getElementById(id).style.display='block'}
 async function check1(){if(arr1.join('')!==C){err++;n1.innerHTML='<span class="err">❌ CHƯA CHÍNH XÁC. Hãy kiểm tra lại từng cặp A–T, G–C.</span>';return}score+=50;n1.innerHTML='<span class="ok">✅ CHÍNH XÁC! Hai mạch đang ghép lại và hình thành mô hình DNA 3D...</span>';showModel('model1');if(!await loadThree()){n1.innerHTML='<span class="err">⚠️ Không tải được thư viện 3D. Hãy kiểm tra kết nối Internet rồi tải lại trang.</span>';return}buildDNA(document.getElementById('dnaCanvas1'));setTimeout(()=>{s1.className='step done';s2.className='step on';s2.textContent='02 · PHIÊN MÃ mRNA';ml.textContent='NHIỆM VỤ 2/2';m1.style.display='none';m2.style.display='block';window.scrollTo({top:0,behavior:'smooth'})},1800)}
 async function check2(){if(arr2.join('')!==R){err++;n2.innerHTML='<span class="err">❌ CHƯA CHÍNH XÁC. Hãy kiểm tra A→U, T→A, G→C, C→G.</span>';return}score+=50;clearInterval(timer);if(!await loadThree()){n2.innerHTML='<span class="err">⚠️ Không tải được thư viện 3D. Hãy kiểm tra kết nối Internet rồi thử lại.</span>';return}let sec=Math.ceil((Date.now()-startTime)/1000),bonus=sec<=240?20:sec<=360?15:sec<=480?10:5;score=Math.max(0,score+bonus-err*2);showModel('model2');buildRNA(document.getElementById('rnaCanvas2'));setTimeout(()=>{save(true,sec);rt.textContent='Đội: '+team;rs.textContent=score;re.textContent=fmt(sec);rx.textContent=err;go('result');buildDNA(document.getElementById('dnaCanvasFinal'));buildRNA(document.getElementById('rnaCanvasFinal'))},1800)}
-const REMOTE_CONFIG={url:'',key:'',room:''};
+const REMOTE_CONFIG=window.GAME_DNA_CONFIG||{url:'',key:'',room:''};
 async function remoteSave(record){
   if(!REMOTE_CONFIG.url||!REMOTE_CONFIG.key||!REMOTE_CONFIG.room)return false;
   try{const r=await fetch(REMOTE_CONFIG.url+'/rest/v1/dna_results',{method:'POST',headers:{'Content-Type':'application/json','apikey':REMOTE_CONFIG.key,'Authorization':'Bearer '+REMOTE_CONFIG.key,'Prefer':'return=minimal'},body:JSON.stringify({...record,room:REMOTE_CONFIG.room})});return r.ok}catch(e){console.warn('Remote save failed',e);return false}
