@@ -34,7 +34,28 @@
 <section id="timeout" class="screen center"><div class="card"><div style="font-size:70px">⏰</div><h1>HẾT THỜI GIAN!</h1><p>Lượt chơi đã được ghi nhận.</p><button class="btn" onclick="location.reload()">↩️ QUAY LẠI</button></div></section>
 
 <script type="module">
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/+esm';
+let THREE=null;
+let threePromise=null;
+async function loadThree(){
+  if(THREE) return THREE;
+  if(threePromise) return threePromise;
+  threePromise=(async()=>{
+    try{
+      THREE=await import('https://cdn.jsdelivr.net/npm/three@0.160.0/+esm');
+      return THREE;
+    }catch(e){
+      console.warn('jsDelivr Three.js failed, trying unpkg...',e);
+      try{
+        THREE=await import('https://unpkg.com/three@0.160.0/build/three.module.js');
+        return THREE;
+      }catch(e2){
+        console.error('Three.js could not be loaded',e2);
+        return null;
+      }
+    }
+  })();
+  return threePromise;
+}
 
 const D='ATGCCTAGGCTTACAATTGGC', C='TACGGATCCGAATGTTAACCG', R='UACGGAUCCGAAUGUUAACCG';
 const teamErr=document.getElementById('teamErr'), clock=document.getElementById('clock'), s1=document.getElementById('s1'), s2=document.getElementById('s2'), ml=document.getElementById('ml'), m1=document.getElementById('m1'), m2=document.getElementById('m2'), n1=document.getElementById('n1'), n2=document.getElementById('n2'), rt=document.getElementById('rt'), rs=document.getElementById('rs'), re=document.getElementById('re'), rx=document.getElementById('rx');
@@ -101,8 +122,8 @@ function attachControls(container,renderer,camera,group){
  renderer.domElement.addEventListener('wheel',e=>{e.preventDefault();dist=Math.max(.65,Math.min(1.5,dist+e.deltaY*.001));camera.position.z=13/dist},{passive:false});
 }
 function showModel(id){document.getElementById(id).style.display='block'}
-function check1(){if(arr1.join('')!==C){err++;n1.innerHTML='<span class="err">❌ CHƯA CHÍNH XÁC. Hãy kiểm tra lại từng cặp A–T, G–C.</span>';return}score+=50;n1.innerHTML='<span class="ok">✅ CHÍNH XÁC! Hai mạch đang ghép lại và hình thành mô hình DNA 3D...</span>';showModel('model1');buildDNA(document.getElementById('dnaCanvas1'));setTimeout(()=>{s1.className='step done';s2.className='step on';s2.textContent='02 · PHIÊN MÃ mRNA';ml.textContent='NHIỆM VỤ 2/2';m1.style.display='none';m2.style.display='block';window.scrollTo({top:0,behavior:'smooth'})},1800)}
-function check2(){if(arr2.join('')!==R){err++;n2.innerHTML='<span class="err">❌ CHƯA CHÍNH XÁC. Hãy kiểm tra A→U, T→A, G→C, C→G.</span>';return}score+=50;clearInterval(timer);let sec=Math.ceil((Date.now()-startTime)/1000),bonus=sec<=240?20:sec<=360?15:sec<=480?10:5;score=Math.max(0,score+bonus-err*2);showModel('model2');buildRNA(document.getElementById('rnaCanvas2'));setTimeout(()=>{save(true,sec);rt.textContent='Đội: '+team;rs.textContent=score;re.textContent=fmt(sec);rx.textContent=err;go('result');buildDNA(document.getElementById('dnaCanvasFinal'));buildRNA(document.getElementById('rnaCanvasFinal'))},1800)}
+async function check1(){if(arr1.join('')!==C){err++;n1.innerHTML='<span class="err">❌ CHƯA CHÍNH XÁC. Hãy kiểm tra lại từng cặp A–T, G–C.</span>';return}score+=50;n1.innerHTML='<span class="ok">✅ CHÍNH XÁC! Hai mạch đang ghép lại và hình thành mô hình DNA 3D...</span>';showModel('model1');if(!await loadThree()){n1.innerHTML='<span class="err">⚠️ Không tải được thư viện 3D. Hãy kiểm tra kết nối Internet rồi tải lại trang.</span>';return}buildDNA(document.getElementById('dnaCanvas1'));setTimeout(()=>{s1.className='step done';s2.className='step on';s2.textContent='02 · PHIÊN MÃ mRNA';ml.textContent='NHIỆM VỤ 2/2';m1.style.display='none';m2.style.display='block';window.scrollTo({top:0,behavior:'smooth'})},1800)}
+async function check2(){if(arr2.join('')!==R){err++;n2.innerHTML='<span class="err">❌ CHƯA CHÍNH XÁC. Hãy kiểm tra A→U, T→A, G→C, C→G.</span>';return}score+=50;clearInterval(timer);if(!await loadThree()){n2.innerHTML='<span class="err">⚠️ Không tải được thư viện 3D. Hãy kiểm tra kết nối Internet rồi thử lại.</span>';return}let sec=Math.ceil((Date.now()-startTime)/1000),bonus=sec<=240?20:sec<=360?15:sec<=480?10:5;score=Math.max(0,score+bonus-err*2);showModel('model2');buildRNA(document.getElementById('rnaCanvas2'));setTimeout(()=>{save(true,sec);rt.textContent='Đội: '+team;rs.textContent=score;re.textContent=fmt(sec);rx.textContent=err;go('result');buildDNA(document.getElementById('dnaCanvasFinal'));buildRNA(document.getElementById('rnaCanvasFinal'))},1800)}
 function save(done,sec){let a=JSON.parse(localStorage.getItem('dna_results')||'[]');a.push({team,start:startTime,end:Date.now(),elapsed:sec,score:done?Math.max(0,score):Math.max(0,score-err*2),errors:err,finished:done});localStorage.setItem('dna_results',JSON.stringify(a))}
 init();
 // Các nút HTML dùng onclick="..."; script module không tự đưa hàm lên window.
