@@ -10,26 +10,10 @@
 .screen{display:none;min-height:100vh;padding:24px}.active{display:flex}.center{align-items:center;justify-content:center;text-align:center}.card{width:min(1120px,100%);background:#091d2cf2;border:1px solid #28536b;border-radius:24px;padding:28px;box-shadow:0 24px 90px #000a}.btn{background:linear-gradient(135deg,var(--cyan),var(--green));color:#03202b;border:0;border-radius:13px;padding:14px 24px;font-weight:900;cursor:pointer}.title{font-size:clamp(35px,6vw,70px);margin:8px}.muted{color:var(--muted)}.eyebrow{color:var(--cyan);font-weight:900;letter-spacing:.12em}
 .top{position:fixed;z-index:5;top:0;left:0;right:0;height:68px;background:#020b12ee;border-bottom:1px solid #21465b;display:flex;align-items:center;justify-content:space-between;padding:0 20px}.timer{font-size:27px;font-weight:900;color:var(--green)}.timer.warn{color:var(--gold)}.timer.bad{color:#ff647a}.wrap{width:min(1120px,100%);margin:65px auto 0}.steps{display:flex;gap:8px;margin:12px 0}.step{flex:1;padding:10px;border-radius:10px;background:#102b3d;color:#7995aa;font-weight:800}.step.on{color:#d5f9ff;background:#12506a}.step.done{color:#c9ffe3;background:#14503a}
 .seq{display:flex;justify-content:center;gap:5px;flex-wrap:wrap;margin:18px 0}.slot,.nt{width:40px;height:43px;border-radius:9px;display:grid;place-items:center;font-weight:900}.slot{border:2px dashed #4e7897;background:#071a2a}.nt{border:1px solid #4e7897;background:#132e48;cursor:grab}.A{color:#55d9ff}.T{color:#59e39b}.G{color:#f4c95d}.C{color:#ff91b8}.U{color:#c5a7ff}.tray{display:flex;justify-content:center;gap:10px;margin:10px}.notice{min-height:28px;margin:12px;font-weight:800}.ok{color:var(--green)}.err{color:#ff647a}input{width:min(500px,100%);padding:15px;border-radius:12px;border:1px solid #315e7c;background:#071a2a;color:white;font-size:18px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{padding:16px;background:#071827;border:1px solid #214863;border-radius:13px}.stat b{display:block;font-size:28px}
-.dnaIntro{height:250px;display:grid;place-items:center;perspective:1100px}
-.molecule{width:180px;height:230px;position:relative;transform-style:preserve-3d;animation:spin 9s linear infinite}
-.molecule .rail{position:absolute;left:70px;top:0;width:42px;height:225px;border:7px solid #5adfff;border-radius:50%;transform:rotateY(68deg);filter:drop-shadow(0 0 8px #55d9ff88)}
-.molecule .rail.r2{transform:rotateY(-68deg);border-color:#59e39b;filter:drop-shadow(0 0 8px #59e39b88)}
-@keyframes spin{to{transform:rotateY(360deg)}}
-.modelStage{height:380px;margin:20px 0;border-radius:20px;background:radial-gradient(circle at center,#123b54 0,#061722 58%,#02090e 100%);display:flex;align-items:center;justify-content:center;perspective:1200px;overflow:hidden;position:relative}
-.dna3d{width:360px;height:300px;position:relative;transform-style:preserve-3d;animation:rotateDNA 12s linear infinite;filter:drop-shadow(0 10px 18px #0009)}
-.dna3d .backbone{position:absolute;left:155px;top:5px;width:50px;height:290px;border:9px solid #47c8f2;border-radius:50%;transform:rotateY(67deg);background:linear-gradient(90deg,#1b7899,#70e7ff,#1b7899);box-shadow:0 0 15px #55d9ff55}
-.dna3d .backbone.r2{transform:rotateY(-67deg);background:linear-gradient(90deg,#187b5a,#78efb3,#187b5a);border-color:#59e39b;box-shadow:0 0 15px #59e39b55}
-.dna3d .pair{position:absolute;left:132px;width:96px;height:8px;border-radius:8px;background:linear-gradient(90deg,#f05f72,#f4c95d);box-shadow:0 0 9px #f4c95d55}
-.dna3d .pair:nth-child(3){top:22px}.dna3d .pair:nth-child(4){top:62px}.dna3d .pair:nth-child(5){top:102px}.dna3d .pair:nth-child(6){top:142px}.dna3d .pair:nth-child(7){top:182px}.dna3d .pair:nth-child(8){top:222px}.dna3d .pair:nth-child(9){top:262px}
-.dna3d .pair:before,.dna3d .pair:after{content:"";position:absolute;top:-5px;width:18px;height:18px;border-radius:50%;background:#f05f72;box-shadow:0 0 8px #f05f7255}.dna3d .pair:before{left:-7px}.dna3d .pair:after{right:-7px;background:#f4c95d}
-@keyframes rotateDNA{to{transform:rotateY(360deg)}}
-.rna3d{width:390px;height:270px;position:relative;transform-style:preserve-3d;animation:rotateRNA 10s linear infinite;filter:drop-shadow(0 10px 18px #0009)}
-.rna3d .backbone{position:absolute;left:180px;top:10px;width:46px;height:250px;border:9px solid #b99cff;border-radius:50%;transform:rotateY(66deg);background:linear-gradient(90deg,#7452ba,#d6c5ff,#7452ba);box-shadow:0 0 18px #b99cff55}
-.rna3d .base{position:absolute;left:139px;width:102px;height:7px;border-radius:7px;background:linear-gradient(90deg,#55d9ff,#f4c95d);box-shadow:0 0 8px #55d9ff55}
-.rna3d .base:nth-child(3){top:25px}.rna3d .base:nth-child(4){top:65px}.rna3d .base:nth-child(5){top:105px}.rna3d .base:nth-child(6){top:145px}.rna3d .base:nth-child(7){top:185px}.rna3d .base:nth-child(8){top:225px}
-@keyframes rotateRNA{to{transform:rotateY(360deg)}}
-.modelLabel{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#cceeff;font-weight:800;background:#020b1288;padding:7px}.finalModels{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.modelBox{background:#061521;border:1px solid #214b66;border-radius:18px;padding:12px}.modelBox h3{margin:5px}.modelBox p{color:var(--muted);font-size:14px}
-@media(max-width:700px){.screen{padding:12px}.stats,.finalModels{grid-template-columns:1fr}.slot,.nt{width:29px;height:35px;font-size:13px}.modelStage{height:300px}.dna3d{transform:scale(.72)}.rna3d{transform:scale(.72)}}
+.dnaIntro{height:250px;display:grid;place-items:center;perspective:1100px}.molecule{width:180px;height:230px;position:relative;transform-style:preserve-3d;animation:spin 9s linear infinite}.molecule .rail{position:absolute;left:70px;top:0;width:42px;height:225px;border:7px solid #5adfff;border-radius:50%;transform:rotateY(68deg)}@keyframes spin{to{transform:rotateY(360deg)}}
+.modelStage{height:420px;margin:20px 0;border-radius:20px;background:radial-gradient(circle at 50% 45%,#173f58 0,#071925 55%,#02090e 100%);position:relative;overflow:hidden;border:1px solid #1e526d}.threeModel{position:absolute;inset:0}.modelLabel{position:absolute;z-index:2;bottom:12px;left:0;right:0;text-align:center;color:#d9f5ff;font-weight:800;background:#020b1299;padding:8px;pointer-events:none}.modelHint{position:absolute;z-index:2;top:12px;left:12px;color:#9fc6d9;background:#020b1290;border:1px solid #28536b;border-radius:10px;padding:7px 10px;font-size:12px;pointer-events:none}
+.finalModels{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.modelBox{background:#061521;border:1px solid #214b66;border-radius:18px;padding:12px}.modelBox h3{margin:5px}.modelBox p{color:var(--muted);font-size:14px}
+@media(max-width:700px){.screen{padding:12px}.stats,.finalModels{grid-template-columns:1fr}.slot,.nt{width:29px;height:35px;font-size:13px}.modelStage{height:330px}}
 </style>
 </head>
 <body>
@@ -39,28 +23,85 @@
 
 <section id="game" class="screen"><div class="top"><b>🧬 GIẢI MÃ DNA</b><span id="ml">NHIỆM VỤ 1/2</span><span id="clock" class="timer">10:00</span></div><div class="wrap">
 <div class="steps"><div id="s1" class="step on">01 · GHÉP DNA</div><div id="s2" class="step lock">02 · PHIÊN MÃ mRNA 🔒</div></div>
-<div id="m1" class="card"><div class="eyebrow">NHIỆM VỤ 1</div><h1>🧬 GHÉP MẠCH DNA</h1><p>Cho mạch khuôn: <b>3' ATGCCTAGGCTTACAATTGGC 5'</b></p><p class="muted">Kéo nucleotide vào từng vị trí để tạo mạch bổ sung theo nguyên tắc A–T, G–C.</p><div id="a1" class="seq"></div><div id="t1" class="tray"></div><div id="n1" class="notice"></div><button class="btn" onclick="check1()">🔍 GHÉP MẠCH & KIỂM TRA</button><div id="model1" style="display:none"><div class="modelStage"><div class="dna3d" id="dnaModel"><div class="backbone"></div><div class="backbone r2"></div><div class="pair"></div><div class="pair"></div><div class="pair"></div><div class="pair"></div><div class="pair"></div><div class="pair"></div><div class="pair"></div></div><div class="modelLabel">DNA xoắn kép 3D — đang quay</div></div></div></div>
+<div id="m1" class="card"><div class="eyebrow">NHIỆM VỤ 1</div><h1>🧬 GHÉP MẠCH DNA</h1><p>Cho mạch khuôn: <b>3' ATGCCTAGGCTTACAATTGGC 5'</b></p><p class="muted">Kéo nucleotide vào từng vị trí để tạo mạch bổ sung theo nguyên tắc A–T, G–C.</p><div id="a1" class="seq"></div><div id="t1" class="tray"></div><div id="n1" class="notice"></div><button class="btn" onclick="check1()">🔍 GHÉP MẠCH & KIỂM TRA</button><div id="model1" style="display:none"><div class="modelStage" id="dnaStage1"><div class="threeModel" id="dnaCanvas1"></div><div class="modelHint">Kéo để xoay · Cuộn để phóng to</div><div class="modelLabel">DNA xoắn kép 3D — mô hình phân tử</div></div></div></div>
 
-<div id="m2" class="card" style="display:none"><div class="eyebrow">NHIỆM VỤ 2</div><h1>🔬 PHIÊN MÃ DNA → mRNA</h1><p>Mạch khuôn: <b>3' ATGCCTAGGCTTACAATTGGC 5'</b></p><p class="muted">Kéo A, U, G, C vào vị trí theo nguyên tắc phiên mã: A–U, T–A, G–C, C–G.</p><div id="a2" class="seq"></div><div id="t2" class="tray"></div><div id="n2" class="notice"></div><button class="btn" onclick="check2()">🔍 PHIÊN MÃ & KIỂM TRA</button><div id="model2" style="display:none"><div class="modelStage"><div class="rna3d"><div class="backbone"></div><div class="base b1"></div><div class="base b2"></div><div class="base b3"></div><div class="base b4"></div><div class="base b5"></div><div class="base b6"></div></div><div class="modelLabel">mRNA 3D — đang quay</div></div></div></div>
+<div id="m2" class="card" style="display:none"><div class="eyebrow">NHIỆM VỤ 2</div><h1>🔬 PHIÊN MÃ DNA → mRNA</h1><p>Mạch khuôn: <b>3' ATGCCTAGGCTTACAATTGGC 5'</b></p><p class="muted">Kéo A, U, G, C vào vị trí theo nguyên tắc phiên mã: A–U, T–A, G–C, C–G.</p><div id="a2" class="seq"></div><div id="t2" class="tray"></div><div id="n2" class="notice"></div><button class="btn" onclick="check2()">🔍 PHIÊN MÃ & KIỂM TRA</button><div id="model2" style="display:none"><div class="modelStage" id="rnaStage2"><div class="threeModel" id="rnaCanvas2"></div><div class="modelHint">Kéo để xoay · Cuộn để phóng to</div><div class="modelLabel">mRNA 3D — một mạch</div></div></div></div>
 </div></section>
 
 <section id="result" class="screen center"><div class="card"><div style="font-size:70px">🎉</div><h1>GIẢI MÃ THÀNH CÔNG!</h1><h2 id="rt"></h2><div class="stats"><div class="stat">Điểm<b id="rs"></b></div><div class="stat">Thời gian<b id="re"></b></div><div class="stat">Số lần sai<b id="rx"></b></div></div><p>DNA bổ sung: <b>5' TACGGATCCGAATGTTAACCG 3'</b></p><p>mRNA: <b>5' UACGGAUCCGAAUGUUAACCG 3'</b></p>
-<div class="finalModels"><div class="modelBox"><h3>🧬 DNA — XOẮN KÉP 3D</h3><div class="modelStage"><div class="dna3d"><div class="backbone"></div><div class="backbone r2"></div><div class="pair"></div><div class="pair"></div><div class="pair"></div><div class="pair"></div><div class="pair"></div><div class="pair"></div><div class="pair"></div></div></div><p>Xoay tự động 360°.</p></div><div class="modelBox"><h3>🔬 RNA — MÔ HÌNH 3D</h3><div class="modelStage"><div class="rna3d"><div class="backbone"></div><div class="base b1"></div><div class="base b2"></div><div class="base b3"></div><div class="base b4"></div><div class="base b5"></div><div class="base b6"></div></div></div><p>Xoay tự động 360°.</p></div></div>
+<div class="finalModels"><div class="modelBox"><h3>🧬 DNA — XOẮN KÉP 3D</h3><div class="modelStage" id="dnaFinalStage"><div class="threeModel" id="dnaCanvasFinal"></div><div class="modelHint">Kéo để xoay · Cuộn để zoom</div><div class="modelLabel">22 cặp base · 2 mạch xoắn</div></div><p>Hai mạch được dựng theo hình học xoắn kép, có backbone và từng cặp base.</p></div><div class="modelBox"><h3>🔬 RNA — MÔ HÌNH 3D</h3><div class="modelStage" id="rnaFinalStage"><div class="threeModel" id="rnaCanvasFinal"></div><div class="modelHint">Kéo để xoay · Cuộn để zoom</div><div class="modelLabel">mRNA một mạch</div></div><p>Mô hình một mạch, tách biệt rõ với DNA xoắn kép.</p></div></div>
 <br><button class="btn" onclick="location.reload()">🔄 CHƠI LẠI</button></div></section>
 <section id="timeout" class="screen center"><div class="card"><div style="font-size:70px">⏰</div><h1>HẾT THỜI GIAN!</h1><p>Lượt chơi đã được ghi nhận.</p><button class="btn" onclick="location.reload()">↩️ QUAY LẠI</button></div></section>
 
-<script>
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/+esm';
+
 const D='ATGCCTAGGCTTACAATTGGC', C='TACGGATCCGAATGTTAACCG', R='UACGGAUCCGAAUGUUAACCG';
 let team='',startTime=0,err=0,score=0,arr1=Array(D.length).fill(''),arr2=Array(D.length).fill(''),timer;
+
 function go(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active')}
 function makeSlots(id,arr){let e=document.getElementById(id);e.innerHTML='';arr.forEach((v,i)=>{let s=document.createElement('div');s.className='slot '+(v||'');s.textContent=v;s.ondragover=x=>x.preventDefault();s.ondrop=x=>{arr[i]=x.dataTransfer.getData('text');makeSlots(id,arr)};s.onclick=()=>{arr[i]='';makeSlots(id,arr)};e.appendChild(s)})}
 function tray(id,letters){let e=document.getElementById(id);e.innerHTML='';for(let x of letters){let n=document.createElement('div');n.className='nt '+x;n.textContent=x;n.draggable=true;n.ondragstart=e=>e.dataTransfer.setData('text',x);e.appendChild(n)}}
 function init(){makeSlots('a1',arr1);makeSlots('a2',arr2);tray('t1','ATGC');tray('t2','AUCG')}
 function fmt(x){return String(Math.floor(x/60)).padStart(2,'0')+':'+String(x%60).padStart(2,'0')}
 function startGame(){team=document.getElementById('teamName').value.trim();if(!team){teamErr.textContent='Vui lòng nhập tên đội.';return}startTime=Date.now();score=0;err=0;go('game');timer=setInterval(()=>{let left=600-Math.floor((Date.now()-startTime)/1000);clock.textContent=fmt(Math.max(0,left));clock.className='timer '+(left<=10?'bad':left<=60?'warn':'');if(left<=0){clearInterval(timer);save(false,600);go('timeout')}},250)}
+
+const scenes=[];
+const baseColors={A:0x41c7ff,T:0x55e39a,G:0xf4c95d,C:0xff6f9f,U:0xb99cff};
+function mat(color,metal=0.15,rough=.35){return new THREE.MeshStandardMaterial({color,metalness:metal,roughness:rough})}
+function sphere(r,color){return new THREE.Mesh(new THREE.SphereGeometry(r,20,20),mat(color,.2,.25))}
+function tube(points,r,color){const curve=new THREE.CatmullRomCurve3(points);return new THREE.Mesh(new THREE.TubeGeometry(curve,120,r,10,false),mat(color,.35,.25))}
+function cylinderBetween(a,b,r,color){const dir=new THREE.Vector3().subVectors(b,a),len=dir.length();const m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,len,12),mat(color,.25,.3));m.position.copy(a).add(b).multiplyScalar(.5);m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),dir.normalize());return m}
+
+function buildDNA(container,template=D,complement=C){
+ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(42,1,.1,100);
+ camera.position.set(0,1.5,15);
+ const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+ renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.outputColorSpace=THREE.SRGBColorSpace;container.innerHTML='';container.appendChild(renderer.domElement);
+ const group=new THREE.Group();group.rotation.x=.08;scene.add(group);
+ scene.add(new THREE.AmbientLight(0xffffff,.75));
+ const key=new THREE.DirectionalLight(0xffffff,2.2);key.position.set(5,7,8);scene.add(key);
+ const rim=new THREE.PointLight(0x4fd7ff,25,30);rim.position.set(-5,2,5);scene.add(rim);
+ const N=template.length,RADIUS=2.25,PITCH=.62;
+ const p1=[],p2=[];
+ for(let i=0;i<N;i++){const y=(i-(N-1)/2)*PITCH,ang=i*.82; p1.push(new THREE.Vector3(RADIUS*Math.cos(ang),y,RADIUS*Math.sin(ang)));p2.push(new THREE.Vector3(-RADIUS*Math.cos(ang),y,-RADIUS*Math.sin(ang)));}
+ group.add(tube(p1,.13,0x59d9ff));group.add(tube(p2,.13,0x5be6a0));
+ for(let i=0;i<N;i++){
+   const a=p1[i],b=p2[i]; const mid=a.clone().add(b).multiplyScalar(.5);
+   const pair=cylinderBetween(a,b,.065,0xb9d7e6);group.add(pair);
+   const s1=sphere(.24,baseColors[template[i]]),s2=sphere(.24,baseColors[complement[i]]);
+   s1.position.copy(a);s2.position.copy(b);group.add(s1,s2);
+   const link1=cylinderBetween(a.clone().multiplyScalar(.78),mid,.11,baseColors[template[i]]);
+   const link2=cylinderBetween(b.clone().multiplyScalar(.78),mid,.11,baseColors[complement[i]]);
+   group.add(link1,link2);
+ }
+ const ring=new THREE.Mesh(new THREE.TorusGeometry(RADIUS+.18,.018,8,80),new THREE.MeshBasicMaterial({color:0x63dfff,transparent:true,opacity:.18}));
+ ring.rotation.x=Math.PI/2;ring.position.y=(N-1)*PITCH/2;group.add(ring);
+ attachControls(container,renderer,camera,group);
+ animate();
+ function resize(){const w=container.clientWidth,h=container.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}
+ function animate(){requestAnimationFrame(animate);if(container.isConnected){group.rotation.y+=.004;renderer.render(scene,camera)}} resize();new ResizeObserver(resize).observe(container);
+}
+function buildRNA(container,seq=R){
+ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(42,1,.1,100);camera.position.set(0,0,13);
+ const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.outputColorSpace=THREE.SRGBColorSpace;container.innerHTML='';container.appendChild(renderer.domElement);
+ const group=new THREE.Group();scene.add(group);scene.add(new THREE.AmbientLight(0xffffff,.8));const l=new THREE.DirectionalLight(0xffffff,2);l.position.set(4,5,7);scene.add(l);
+ const pts=[];for(let i=0;i<seq.length;i++){const a=i*.78;pts.push(new THREE.Vector3(1.7*Math.cos(a), (i-(seq.length-1)/2)*.62,1.7*Math.sin(a)))} group.add(tube(pts,.14,0xb99cff));
+ for(let i=0;i<pts.length;i++){const p=pts[i],tip=p.clone().multiplyScalar(.76);group.add(sphere(.25,baseColors[seq[i]]));group.children[group.children.length-1].position.copy(p);group.add(cylinderBetween(p.clone().multiplyScalar(.75),tip,.1,baseColors[seq[i]]))}
+ attachControls(container,renderer,camera,group);animate();
+ function resize(){const w=container.clientWidth,h=container.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}function animate(){requestAnimationFrame(animate);if(container.isConnected){group.rotation.y+=.004;renderer.render(scene,camera)}}resize();new ResizeObserver(resize).observe(container);
+}
+function attachControls(container,renderer,camera,group){
+ let down=false,lastX=0,lastY=0,dist=1;
+ renderer.domElement.style.touchAction='none';
+ renderer.domElement.addEventListener('pointerdown',e=>{down=true;lastX=e.clientX;lastY=e.clientY;renderer.domElement.setPointerCapture(e.pointerId)});
+ renderer.domElement.addEventListener('pointermove',e=>{if(!down)return;group.rotation.y+=(e.clientX-lastX)*.01;group.rotation.x+=(e.clientY-lastY)*.01;group.rotation.x=Math.max(-1.2,Math.min(1.2,group.rotation.x));lastX=e.clientX;lastY=e.clientY});
+ renderer.domElement.addEventListener('pointerup',()=>down=false);renderer.domElement.addEventListener('pointercancel',()=>down=false);
+ renderer.domElement.addEventListener('wheel',e=>{e.preventDefault();dist=Math.max(.65,Math.min(1.5,dist+e.deltaY*.001));camera.position.z=13/dist},{passive:false});
+}
 function showModel(id){document.getElementById(id).style.display='block'}
-function check1(){if(arr1.join('')!==C){err++;n1.innerHTML='<span class="err">❌ CHƯA CHÍNH XÁC. Hãy kiểm tra lại từng cặp A–T, G–C.</span>';return}score+=50;n1.innerHTML='<span class="ok">✅ CHÍNH XÁC! Hai mạch đang ghép lại và hình thành xoắn kép 3D...</span>';showModel('model1');setTimeout(()=>{s1.className='step done';s2.className='step on';s2.textContent='02 · PHIÊN MÃ mRNA';ml.textContent='NHIỆM VỤ 2/2';m1.style.display='none';m2.style.display='block';window.scrollTo({top:0,behavior:'smooth'})},1800)}
-function check2(){if(arr2.join('')!==R){err++;n2.innerHTML='<span class="err">❌ CHƯA CHÍNH XÁC. Hãy kiểm tra A→U, T→A, G→C, C→G.</span>';return}score+=50;clearInterval(timer);let sec=Math.ceil((Date.now()-startTime)/1000),bonus=sec<=240?20:sec<=360?15:sec<=480?10:5;score=Math.max(0,score+bonus-err*2);showModel('model2');setTimeout(()=>{save(true,sec);rt.textContent='Đội: '+team;rs.textContent=score;re.textContent=fmt(sec);rx.textContent=err;go('result')},1800)}
+function check1(){if(arr1.join('')!==C){err++;n1.innerHTML='<span class="err">❌ CHƯA CHÍNH XÁC. Hãy kiểm tra lại từng cặp A–T, G–C.</span>';return}score+=50;n1.innerHTML='<span class="ok">✅ CHÍNH XÁC! Hai mạch đang ghép lại và hình thành mô hình DNA 3D...</span>';showModel('model1');buildDNA(document.getElementById('dnaCanvas1'));setTimeout(()=>{s1.className='step done';s2.className='step on';s2.textContent='02 · PHIÊN MÃ mRNA';ml.textContent='NHIỆM VỤ 2/2';m1.style.display='none';m2.style.display='block';window.scrollTo({top:0,behavior:'smooth'})},1800)}
+function check2(){if(arr2.join('')!==R){err++;n2.innerHTML='<span class="err">❌ CHƯA CHÍNH XÁC. Hãy kiểm tra A→U, T→A, G→C, C→G.</span>';return}score+=50;clearInterval(timer);let sec=Math.ceil((Date.now()-startTime)/1000),bonus=sec<=240?20:sec<=360?15:sec<=480?10:5;score=Math.max(0,score+bonus-err*2);showModel('model2');buildRNA(document.getElementById('rnaCanvas2'));setTimeout(()=>{save(true,sec);rt.textContent='Đội: '+team;rs.textContent=score;re.textContent=fmt(sec);rx.textContent=err;go('result');buildDNA(document.getElementById('dnaCanvasFinal'));buildRNA(document.getElementById('rnaCanvasFinal'))},1800)}
 function save(done,sec){let a=JSON.parse(localStorage.getItem('dna_results')||'[]');a.push({team,start:startTime,end:Date.now(),elapsed:sec,score:done?Math.max(0,score):Math.max(0,score-err*2),errors:err,finished:done});localStorage.setItem('dna_results',JSON.stringify(a))}
 init();
 </script></body></html>
